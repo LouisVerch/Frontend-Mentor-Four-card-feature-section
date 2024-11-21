@@ -7,7 +7,18 @@
     --neutral-very-dark-blue: hsl(234, 12%, 34%);
     --neutral-grayish-blue: hsl(229, 6%, 66%);
     --neutral-very-light-gray: hsl(0, 0%, 98%);
-    --fs-l: 1.8rem;
+
+    /* Define Font Sizes with clamp() */
+    --fs-h1: clamp(1.5rem, 4vw, 2.25rem);
+    /* Header 1 */
+    --fs-main-paragraph: clamp(1rem, 2.5vw, 1.2rem);
+    /* Main paragraph */
+    --fs-card-header: clamp(1rem, 3vw, 1.3rem);
+    /* Card header */
+    --fs-card-content: clamp(0.85rem, 2.5vw, 1rem);
+    /* Card content */
+    --fs-l: clamp(1.8rem, 5vw, 2.5rem);
+    /* Large font size (example) */
 }
 
 html {
@@ -41,15 +52,17 @@ p {
 }
 
 main {
-    min-height: 100vh;
+    min-height: auto;
     padding: 2rem;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 2rem;
 }
 
 h1 {
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-size: var(--fs-h1);
     font-weight: 200;
     text-align: center;
 }
@@ -61,16 +74,17 @@ h1>span {
 .main-paragraph {
     max-width: 30rem;
     text-align: center;
-    font-size: 1rem;
+    font-size: var(--fs-main-paragraph);
     color: var(--neutral-grayish-blue);
 }
 
 .cards {
-    align-self: self-start;
+    align-self: center;
     display: grid;
-    grid-template-columns: repeat(1, minmax(auto, 21.875rem));
+    grid-template-columns: repeat(1, minmax(auto, 25rem));
     grid-auto-rows: auto;
-    gap: 1.6rem;
+    grid-auto-columns: auto;
+    gap: 2rem;
     max-width: 73.125rem;
 }
 
@@ -106,13 +120,13 @@ h1>span {
 }
 
 .card-header {
-    font-size: 1.3rem;
+    font-size: var(--fs-card-header);
     font-weight: 600;
     color: var(--neutral-very-dark-blue);
 }
 
 .card-content {
-    font-size: 0.89rem;
+    font-size: var(--fs-card-content);
     color: var(--neutral-grayish-blue);
     padding-bottom: 1.5rem;
 }
@@ -122,11 +136,26 @@ h1>span {
     justify-self: end;
 }
 
-@media screen and (min-width: 768px) {
+/* Media Query for Tablet Screens (768px to 1200px) */
+@media screen and (min-width: 768px) and (max-width: 1200px) {
     .cards {
-        grid-template-columns: repeat(3, minmax(1fr, 21.875rem));
-        grid-template-rows: auto auto;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns on medium screens */
+        gap: 3rem;
+        /* More space between cards */
+    }
+}
+
+/* Media Query for Large Screens (1200px and above) */
+@media screen and (min-width: 1200px) {
+    .cards {
+        max-width: 75rem;
+        grid-template-columns: repeat(3,
+                minmax(1fr, 21.875rem));
+        /* 3 columns on large screens */
+        grid-template-rows: auto;
         align-items: center;
+        justify-content: center;
     }
 
     .card-cyan {
