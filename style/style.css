@@ -1,5 +1,5 @@
-:root{
-    --ff-primary: 'Poppins', 'Times New Roman', sans-serif;
+:root {
+    --ff-primary: "Poppins", "Times New Roman", sans-serif;
     --primary-red: hsl(0, 78%, 62%);
     --primary-cyan: hsl(180, 62%, 55%);
     --primary-orange: hsl(34, 97%, 64%);
@@ -8,6 +8,7 @@
     --neutral-grayish-blue: hsl(229, 6%, 66%);
     --neutral-very-light-gray: hsl(0, 0%, 98%);
 }
+
 html {
     font-size: 100%;
 }
@@ -22,16 +23,55 @@ html {
     margin: 0;
     padding: 0;
 }
+
+body {
+    margin: 2rem;
+}
+
 h1 {
-    font-size: 1.2rem;
+    margin-top: 5rem;
+    font-size: 1.8rem;
     font-family: var(--ff-primary);
     font-weight: 200;
     text-align: center;
 }
 
 h2 {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     font-family: var(--ff-primary);
-    font-weight: 200;
+    font-weight: 600;
     text-align: center;
+    margin-bottom: 2rem;
+}
+
+.main-paragraph {
+    font-family: var(--ff-primary);
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-bottom: 5rem;
+    color: var(--neutral-grayish-blue);
+}
+
+h3 {
+    font-family: var(--ff-primary);
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--neutral-very-dark-blue);
+}
+
+.supervisor-box {
+    border-top: 0.3rem solid var(--primary-cyan);
+    border-radius: 0.3rem;
+    box-shadow: 0.2rem 0.2rem;
+    padding: 1rem;
+}
+
+.paragraph-box {
+    font-family: var(--ff-primary);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 5rem;
+    justify-content: left;
+    color: var(--neutral-grayish-blue);
 }
