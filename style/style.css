@@ -7,6 +7,7 @@
     --neutral-very-dark-blue: hsl(234, 12%, 34%);
     --neutral-grayish-blue: hsl(229, 6%, 66%);
     --neutral-very-light-gray: hsl(0, 0%, 98%);
+    --fs-l: 1.8rem;
 }
 
 html {
@@ -17,61 +18,67 @@ html {
 *::before,
 *::after {
     box-sizing: border-box;
-}
-
-* {
     margin: 0;
     padding: 0;
 }
 
 body {
-    margin: 2rem;
+    line-height: 1.5;
+    font-family: var(--ff-primary);
+}
+
+main {
+    min-height: 100vh;
+    padding: 2rem;
+    display: grid;
+    place-items: center;
+    gap: 2rem;
 }
 
 h1 {
-    margin-top: 5rem;
-    font-size: 1.8rem;
-    font-family: var(--ff-primary);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
     font-weight: 200;
     text-align: center;
 }
 
 h2 {
-    font-size: 1.8rem;
-    font-family: var(--ff-primary);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
     font-weight: 600;
     text-align: center;
-    margin-bottom: 2rem;
 }
 
 .main-paragraph {
-    font-family: var(--ff-primary);
     text-align: center;
-    font-size: 1.3rem;
-    line-height: 1.5;
-    margin-bottom: 5rem;
+    font-size: 1rem;
     color: var(--neutral-grayish-blue);
 }
 
 h3 {
-    font-family: var(--ff-primary);
-    font-size: 1.3rem;
-    line-height: 1.5;
+    font-size: 1.5rem;
     color: var(--neutral-very-dark-blue);
 }
 
-.supervisor-box {
+.cards>div {
+    display: flex;
+    flex-direction: column;
     border-top: 0.3rem solid var(--primary-cyan);
     border-radius: 0.3rem;
-    box-shadow: 0.2rem 0.2rem;
-    padding: 1rem;
+    box-shadow: 0.1rem 0.1rem 20px var(--neutral-grayish-blue);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    justify-content: flex-end;
 }
 
-.paragraph-box {
+.card-content {
     font-family: var(--ff-primary);
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.5;
-    margin-bottom: 5rem;
-    justify-content: left;
+    margin-bottom: 3rem;
     color: var(--neutral-grayish-blue);
+}
+
+.card-image {
+    max-width: 15%;
+    max-height: 15%;
+    justify-self: end;
 }
